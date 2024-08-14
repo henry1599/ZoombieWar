@@ -18,6 +18,14 @@ namespace HenryDev.Utilities
                 Object.Destroy(transform.GetChild(i).gameObject);
             }
         }
+        public static void DeleteChildrenImmediate(this Transform transform)
+        {
+            int childCount = transform.childCount;
+            for (int i = childCount - 1; i >= 0; i--)
+            {
+                Object.DestroyImmediate(transform.GetChild(i).gameObject);
+            }
+        }
     }
     public static class ObjectExt
     {

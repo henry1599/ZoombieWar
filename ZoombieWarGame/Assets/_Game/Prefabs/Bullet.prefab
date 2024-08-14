@@ -110,7 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb2D: {fileID: -3543598455813712782}
-  vfxExplosion: {fileID: 3742227356545178391, guid: 86b8b8619176b4a42a092cd8f27ca5fa, type: 3}
+  vfxExplosion: {fileID: 3742227356545178391, guid: 86b8b8619176b4a42a092cd8f27ca5fa,
+    type: 3}
 --- !u!1 &3678991525120801083
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +185,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847,
+    type: 3}
   m_Color: {r: 1, g: 0.57169807, b: 0.82381624, a: 1}
   m_FlipX: 0
   m_FlipY: 0

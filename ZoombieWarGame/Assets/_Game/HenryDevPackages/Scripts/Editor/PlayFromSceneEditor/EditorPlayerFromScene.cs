@@ -64,13 +64,18 @@ namespace HenryDev.EditorTools
         }
         void OnDestroy() 
         {
-            this.openButton.clicked -= OnOpenButtonClicked;
-            this.playButton.clicked -= OnPlayButtonClicked;
-            this.openAdditiveButton.clicked -= OnOpenAdditiveButtonClicked;
-
-            this.playMainButton.clicked -= OnPlayMainButtonClicked;
-            this.playMainRoomButton.clicked -= OnPlayMainRoomButtonClicked;
-            this.reloadButton.clicked -= OnReloadButtonClicked;
+            if (this.openButton != null)
+                this.openButton.clicked -= OnOpenButtonClicked;
+            if (this.playButton != null)
+                this.playButton.clicked -= OnPlayButtonClicked;
+            if (this.openAdditiveButton != null)
+                this.openAdditiveButton.clicked -= OnOpenAdditiveButtonClicked;
+            if (this.playMainButton != null)
+                this.playMainButton.clicked -= OnPlayMainButtonClicked;
+            if (this.playMainRoomButton != null)
+                this.playMainRoomButton.clicked -= OnPlayMainRoomButtonClicked;
+            if (this.reloadButton != null)
+                this.reloadButton.clicked -= OnReloadButtonClicked;
             
             EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
         }

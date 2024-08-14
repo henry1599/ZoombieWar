@@ -22,3 +22,4 @@ MonoBehaviour:
   Piercing: 0
   BasePickupRadius: 0
   BaseExp: 15
+  RateOfMine: 3

@@ -5,6 +5,7 @@ using UnityEngine;
 public static class PlayerEvents
 {
     public static Action<float> OnExpCollected;
+    public static Action OnMapGenerated;
 
 
     // * UI Subscriber

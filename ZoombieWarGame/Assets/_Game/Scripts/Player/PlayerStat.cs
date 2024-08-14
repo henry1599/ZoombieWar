@@ -20,6 +20,8 @@ namespace Survival
         [ShowInInspector, ReadOnly] public int MaxHealth { get; private set; }
         [ShowInInspector, ReadOnly] public float PickupRadius { get; private set; }
         [ShowInInspector, ReadOnly] public float BaseExp { get; private set; }
+        [ShowInInspector, ReadOnly] public float RateOfMine { get; private set; }
+        [ShowInInspector, ReadOnly] public float InverseRateOfMining { get; private set; }
 
 
 
@@ -44,6 +46,13 @@ namespace Survival
             MaxHealth = this.StatConfig.BaseMaxHealth;
             PickupRadius = this.StatConfig.BasePickupRadius;
             BaseExp = this.StatConfig.BaseExp;
+            RateOfMine = this.StatConfig.RateOfMine;
+            InverseRateOfMining = 1f / this.StatConfig.RateOfMine;
+        }
+        public void IncreateRateOfMining(float percentage)
+        {
+            RateOfMine += RateOfMine * percentage;
+            InverseRateOfMining = 1f / RateOfMine;
         }
         public void IncreasePickupRadius(int value)
         {

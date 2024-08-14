@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using HenryDev;
@@ -8,8 +9,13 @@ namespace Survival
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] Collider2D col2D;
         private IChangeableValue health;
         private IChangeableValue exp;
+        void Awake()
+        {
+            PlayerEvents.OnMapGenerated += HandleMapGenerated;
+        }
         void Start()
         {
             this.health = gameObject.GetChangeableComponent<Health>();
@@ -20,6 +26,26 @@ namespace Survival
 
             PlayerEvents.OnHealthInit?.Invoke(this.health);
             PlayerEvents.OnExpInit?.Invoke(this.exp);
+
+
+        }
+        void OnDestroy()
+        {
+            PlayerEvents.OnMapGenerated -= HandleMapGenerated;
+        }
+
+        private void HandleMapGenerated()
+        {
+            this.col2D.isTrigger = true;
+            Cell spawnCell = MapManager.Instance?.GetSpawnCell();
+            if (spawnCell == null)
+            {
+                this.Log("Spawn cell is null", Color.red);
+                return;
+            }
+            this.transform.position = spawnCell.Position;
+            
+            this.col2D.isTrigger = false;
         }
 
         [Button("Heal")]

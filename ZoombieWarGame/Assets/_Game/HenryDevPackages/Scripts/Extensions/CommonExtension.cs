@@ -322,6 +322,40 @@ namespace HenryDev
 
             return new Vector3(x, y, z);
         }
+        public static T[] Populate<T>(this T[] arr, T value)
+        {
+            int length = arr.Length;
+            for (int i = 0; i < length; i++)
+                arr[i] = value;
+            return arr;
+        }
+        public static T[,] Populate<T>(this T[,] arr, T value)
+        {
+            int width = arr.GetLength(0);
+            int height = arr.GetLength(1);
+            for (int i = 0; i < width; i++)
+            {
+                for (int j = 0; j < height; j++)
+                {
+                    arr[i, j] = value;
+                }
+            }
+            return arr;
+        }
+        public static int[] PopulateRandom(this int[] arr, int min, int max)
+        {
+            int length = arr.Length;
+            for (int i = 0; i < length; i++)
+                arr[i] = Random.Range(min, max);
+            return arr;
+        }
+        public static float[] PopulateRandom(this float[] arr, float min, float max)
+        {
+            int length = arr.Length;
+            for (int i = 0; i < length; i++)
+                arr[i] = Random.Range(min, max);
+            return arr;
+        }
         public static Vector3 RandomPositionOnSphere(this Vector3 current, float radius)
         {
             float theta = Random.Range(0f, Mathf.PI * 2);

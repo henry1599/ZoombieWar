@@ -19,5 +19,6 @@ namespace Survival
         public int Piercing;
         public float BasePickupRadius;
         public float BaseExp;
+        public float RateOfMine;
     }
 }
