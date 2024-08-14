@@ -9,7 +9,7 @@ namespace Survival
     {
         IInput input;
         [SerializeField] float movementSpeed;
-        [SerializeField] Rigidbody2D rb2D;
+        [SerializeField] Rigidbody rb;
 
         public IInput Input => this.input;
 
@@ -21,8 +21,12 @@ namespace Survival
         }
         void Update()
         {
-            this.rb2D.velocity = this.input.Input.Move * this.movementSpeed;
+            this.rb.velocity = ToVelocity(this.input.Input.Move * this.movementSpeed);
             this.OnMove?.Invoke(this.input.Input.Move);
+        }
+        Vector3 ToVelocity(Vector2 movement)
+        {
+            return new Vector3(movement.x, 0, movement.y);
         }
     }
 }
